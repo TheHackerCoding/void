@@ -13,6 +13,9 @@ path = "src/blockchain.rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+substring = "1.4.5"
+actix-web = "3"
+tiny_http = "0.9.0"
 serde = { version = "1.0.130", features = ["derive"] }
 serde_json = "1.0.68"
 chrono = "0.4"
