@@ -36,7 +36,7 @@ pub struct Blockchain {
   pub chain: Vec<Block>,
   pub current_data: Vec<BlockData>,
   pub nodes: HashSet<String>,
-  pub MAX_BLOCK_SIZE: i64,
+  pub max_block_size: i64,
 }
 
 impl Blockchain {
@@ -51,7 +51,7 @@ impl Blockchain {
       chain: Vec::new(),
       current_data: Vec::new(),
       nodes: HashSet::new(),
-      MAX_BLOCK_SIZE: x
+      max_block_size: x
     };
     data.new_block(NewBlockOptions {
       proof: 734,
@@ -102,7 +102,15 @@ impl Blockchain {
     return proof;
   }
 
-  pub fn register_node(&self, addr: String) {
-    
+  pub fn add_node(&mut self, addr: String) {
+    self.nodes.insert(addr);
+  }
+
+  pub fn resolve_conflicts(&self) -> bool {
+    let res: bool = false;
+    for _node in &self.nodes {
+      println!("{}", _node);
+    }
+    return res;
   }
 }
